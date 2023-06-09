@@ -154,7 +154,7 @@ const IndexPage: React.FC<PageProps> = () => {
 
         <section id="contact" className="px-5 py-10 bg-zinc-900">
           <SectionTitle>Contact</SectionTitle>
-          <form id="ContactForm" method="POST" data-netlify="true">
+          <form name="contact" id="ContactForm" method="POST" data-netlify="true">
             <div className="grid grid-cols-1 gap-x-4 gap-y-3 md:grid-cols-2 md:max-w-screen-md md:gap-y-2">
               <input type="hidden" name="subject" value="Contact from from caroldonato.netlify.app" />
               <div className="flex flex-col">

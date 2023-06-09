@@ -350,7 +350,7 @@ export const hoverableStyle = (isHovered:boolean, color?:string) => ({
     transform: isHovered ? "translateY(2px)" : "translateY(0px)"
 });
 
-export const HoverableButton = styled.a`
+export const HoverableButton = styled.button`
     transition: all 0.25s ease-in;
     padding: 20px;
     min-width: fit-content;
