@@ -154,30 +154,32 @@ const IndexPage: React.FC<PageProps> = () => {
 
         <section id="contact" className="px-5 py-10 bg-zinc-900">
           <SectionTitle>Contact</SectionTitle>
-          <form id="ContactForm">
+          <form id="ContactForm" method="POST" data-netlify="true">
             <div className="grid grid-cols-1 gap-x-4 gap-y-3 md:grid-cols-2 md:max-w-screen-md md:gap-y-2">
+              <input type="hidden" name="subject" value="Contact from from caroldonato.netlify.app" />
               <div className="flex flex-col">
                 <label>Name</label>
-                <input name="Name" id="Name" placeholder="Name" />
+                <input type="text" name="name" placeholder="Name" />
               </div>
               <div className="flex flex-col">
                 <label>E-mail</label>
-                <input name="Email" id="Email" placeholder="E-mail" />
+                <input type="text" name="email" placeholder="E-mail" />
               </div>
               <div className="flex flex-col">
                 <label>Phone</label>
-                <input name="Phone" id="Phone" placeholder="Phone" />
+                <input type="text" name="phone" placeholder="Phone" />
               </div>
               <div className="flex flex-col">
                 <label>Website</label>
-                <input name="Website" id="Website" placeholder="Website" />
+                <input type="text" name="website" placeholder="Website" />
               </div>
               <div className="flex flex-col md:col-span-2">
                 <label>Message</label>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                  <textarea name="Message" id="Message" rows={5} className="w-full" placeholder="Let me know what you think!"></textarea>
+                  <textarea name="message" rows={5} className="w-full" placeholder="Let me know what you think!"></textarea>
                   <HoverableButton 
                     id="Send"
+                    type="submit"
                     className="flex flex-row w-full md:w-fit p-3 justify-center items-center rounded-sm">
                       Send <RiSendPlaneFill className="ml-2" />
                   </HoverableButton>
