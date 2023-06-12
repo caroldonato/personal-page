@@ -202,10 +202,10 @@ const IndexPage: React.FC<PageProps> = () => {
           <div className="flex flex-col gap-10 md:flex-row md:justify-between">
             <div className="flex flex-col flex-1">
               <SectionTitle>Contact</SectionTitle>
-              <form name="ContactForm" id="ContactForm" method="POST" data-netlify="true">
+              <form name="ContactForm" id="ContactForm" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
                 <div className="grid grid-cols-1 gap-x-4 gap-y-3 md:grid-cols-2 md:max-w-screen-md md:gap-y-2">
                   <input type="hidden" name="subject" value="Contact from from caroldonato.netlify.app" />
-                  <input type="text" name="namehnpt" hidden />
+                  <input type="hidden" name="form-name" value="ContactForm" />
 
                   <div className="flex flex-col">
                     <label>Name</label>
