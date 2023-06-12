@@ -1,23 +1,5 @@
 import styled, { keyframes } from "styled-components";
 
-const rollUp = keyframes`
-    from {
-        transform: translateY(-100%);
-    }
-    to {
-        transform: translateY(0);
-    }
-`
-
-const rollDown = keyframes`
-    from {
-        transform: translateY(0);
-    }
-    to {
-        transform: translateY(-100%);
-    }
-`
-
 const rainbowShadow = keyframes`
     0% {
         box-shadow: 0px 0px 20px #ff008d;
@@ -66,7 +48,7 @@ const rainbowShadow = keyframes`
 `
 
 export const StyledNav = styled.nav`
-    z-index: 1;
+    z-index: 10;
     top: 0;
     position: sticky;
     display: flex;
@@ -86,7 +68,7 @@ export const StyledNav = styled.nav`
 `;
 
 export const StyledNavMobile = styled.nav`
-    z-index: 1;
+    z-index: 10;
     top: 0;
     position: sticky;
     display: flex;
@@ -142,17 +124,4 @@ export const NavMobileWrapper = styled.div`
 
     background: #2e2e2e;
     padding: 10px;
-
-    &.hiddenNav {
-        position: absolute;
-        z-index: -999;
-        visibility: hidden;
-        animation: ${rollDown} 0.5s linear;
-    }
-
-    &.shownNav {
-        position: relative;
-        visibility: visible;
-        animation: ${rollUp} 0.5s linear;
-    }
 `;

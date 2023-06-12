@@ -245,12 +245,12 @@ export const PhotoFrame = styled.div`
                 5px -5px 0px 0px  rgba(24, 24, 27, 1),
                 10px -10px 0px 0px #ff008d;
 
-    animation: ${rainbowPhotoFrame} 20s linear infinite;
+    animation: ${rainbowPhotoFrame} 20s linear infinite, ${rainbowShadow} 20s linear infinite;
 `;
 
 export const SectionDivider = styled.div`
     height: 0.5vh;
-    background: rgb(255,0,141);
+    background-color: rgb(255,0,141);
     background: linear-gradient(90deg, 
         rgba(255,0,141,1) 9%, 
         rgba(255,0,38,1) 9%, 
@@ -272,36 +272,6 @@ export const SectionDivider = styled.div`
         rgba(153,0,255,1) 81%, 
         rgba(153,0,255,1) 90%, 
         rgba(255,0,141,1) 90%);
-`;
-
-export const SectionDividerWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-`;
-
-export const SectionDivider_proto = styled.div`
-    width: 50%;
-    height: 5vh;
-    background: rgb(255,0,141);
-    background: linear-gradient(0deg, rgba(255,0,141,1) 9%, rgba(255,0,38,1) 9%, rgba(255,0,38,1) 18%, rgba(255,94,0,1) 18%, rgba(255,94,0,1) 27%, rgba(255,187,0,1) 27%, rgba(255,187,0,1) 36%, rgba(229,255,0,1) 36%, rgba(229,255,0,1) 45%, rgba(47,255,0,1) 45%, rgba(47,255,0,1) 54%, rgba(0,255,162,1) 54%, rgba(0,255,162,1) 63%, rgba(0,238,255,1) 63%, rgba(0,238,255,1) 72%, rgba(0,128,255,1) 72%, rgba(0,128,255,1) 81%, rgba(153,0,255,1) 81%, rgba(153,0,255,1) 90%, rgba(255,0,141,1) 90%);
-`;
-
-export const SectionDividerEndRight = styled.div`
-    display: block;
-    height: 6vh;
-    background-color: rgba(10, 10, 10, 1);
-    width: 3vw;
-
-    &::after {
-        display: block;
-        content: ' ';
-        width: 3vw;
-        height: 2vh;
-        background-color: red;
-    }
 `;
 
 export const VerticalDivider = styled.div`
@@ -332,7 +302,7 @@ export const HorizontalDivider = styled.div`
 `;
 
 export const hoverableStyle = (isHovered:boolean, color?:string) => ({
-    transition: "all 0.25s ease-in",
+    transition: "all 0.15s ease-in",
     boxShadow: isHovered ? `-5px 10px 0px rgba(30, 30, 30, 1),
                             5px 10px 0px rgba(30, 30, 30, 1),
                             5px 0px 0px rgba(30, 30, 30, 1),
@@ -350,8 +320,9 @@ export const hoverableStyle = (isHovered:boolean, color?:string) => ({
     transform: isHovered ? "translateY(2px)" : "translateY(0px)"
 });
 
-export const HoverableButton = styled.button`
-    transition: all 0.25s ease-in;
+export const HoverableLink = styled.a`
+    border-radius: 0.375rem;
+    transition: all 0.15s ease-in;
     padding: 20px;
     min-width: fit-content;
 
@@ -376,5 +347,46 @@ export const HoverableButton = styled.button`
 
         scale: 0.9;
         transform: translateY(2px);
+    }
+`;
+
+export const HoverableButton = styled.button`
+    border-radius: 0.375rem;
+    transition: all 0.15s ease-in;
+    padding: 20px;
+    min-width: fit-content;
+
+    box-shadow: -5px 10px 0px rgba(30, 30, 30, 1),
+                5px 10px 0px rgba(30, 30, 30, 1),
+                5px 0px 0px rgba(30, 30, 30, 1),
+                -5px 0px 0px rgba(30, 30, 30, 1),
+                0px 2px 0px rgba(60, 60, 60, 1) inset,
+                3px -3px 0px rgba(102, 102, 102, 1) inset,
+                -1px -3px 0px rgba(189, 189, 189, 0.9) inset;
+    scale: 1;
+    transform: translateY(0px);
+
+    &:hover {
+        box-shadow: -5px 10px 0px rgba(30, 30, 30, 1),
+                    5px 10px 0px rgba(30, 30, 30, 1),
+                    5px 0px 0px rgba(30, 30, 30, 1),
+                    -5px 0px 0px rgba(30, 30, 30, 1),
+                    3px -3px 0px rgba(102, 102, 102, 1) inset,
+                    -1px -3px 0px rgba(189, 189, 189, 0.9) inset,
+                    0px 5px 20px 10px #fff;
+
+        scale: 0.9;
+        transform: translateY(2px);
+    }
+`;
+
+export const HoverableMedia = styled.a`
+    color: white;
+    box-shadow: none;
+
+    &:hover {
+        color: black;
+        filter: drop-shadow(0px 0px 3px #fff);
+        animation: ${rainbowShadow} 1s linear infinite;
     }
 `;
