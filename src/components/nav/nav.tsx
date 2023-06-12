@@ -1,14 +1,11 @@
 import * as React from 'react';
+import { useCollapse } from 'react-collapsed';
 import { StyledNav, StyledNavMobile, NavLink, linkStyle, NavLinkMobile, NavMobileWrapper } from './nav.style';
 import { Link } from 'gatsby';
 import { FaBars } from "react-icons/fa";
 
 const Nav: React.FC = () => {
-    const [isShown, setIsShown] = React.useState(false); // For mobile nav only
-
-    function toggleNav() {
-        setIsShown(!isShown);
-    }
+    const { getCollapseProps, getToggleProps, isExpanded } = useCollapse(); // For mobile nav only
 
     return (
         <>
@@ -20,13 +17,13 @@ const Nav: React.FC = () => {
                 {/* <NavLink><Link to="/projects" style={linkStyle}>Projects</Link></NavLink> */}
                 <NavLink><Link to="/#contact" style={linkStyle}>Contact</Link></NavLink>
             </StyledNav>
-            <StyledNavMobile className={ isShown ? "shownNav" : "hiddenNav" }>
+            <StyledNavMobile>
                 <NavLinkMobile>
-                    <button onClick={toggleNav} className={isShown ? "mb-5" : ""}>
+                    <button {...getToggleProps()}>
                         <FaBars />
                     </button>
                 </NavLinkMobile>
-                <NavMobileWrapper className={ isShown ? "shownNav" : "hiddenNav" }>
+                <NavMobileWrapper {...getCollapseProps()}>
                     <div className="flex flex-row w-full justify-between">
                         <NavLinkMobile><Link to="/" style={linkStyle}>Home</Link></NavLinkMobile>
                         <NavLinkMobile><Link to="/#about" style={linkStyle}>About</Link></NavLinkMobile>
